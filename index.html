@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Math IV Quarter 4 Interactive Game</title>
+<style>
+body { font-family: Arial; margin: 0; padding: 0; background: #e6f2ff; }
+.center-screen {
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  height: 100vh; text-align: center;
+}
+h1 { font-size: 60px; color: #0066cc; margin-bottom: 40px; }
+button.play-now {
+  background-color: #0066cc; color: white; font-size: 28px; padding: 20px 60px;
+  border: none; border-radius: 10px; cursor: pointer;
+}
+button { margin: 5px 5px 15px 0; padding: 12px 25px; font-size: 20px; cursor: pointer; }
+.week-content { padding: 20px; max-width: 900px; margin: auto; }
+h2 { color: #0066cc; font-size: 28px; margin-top: 40px; }
+h3 { font-size: 24px; }
+p.story { text-align: justify; font-size: 20px; line-height: 1.6; background-color: #cce0ff; padding: 15px; border-radius: 8px; }
+.feedback { font-weight: bold; margin-bottom: 20px; font-size: 20px; }
+.score { font-weight: bold; font-size: 22px; margin: 20px 0; }
+.week { display: none; }
+</style>
+</head>
+<body>
+
+<!-- START SCREEN -->
+<div id="startScreen" class="center-screen">
+  <h1>Math IV - Quarter 4</h1>
+  <button class="play-now" onclick="startGame()">Play Now</button>
+</div>
+
+<div id="gameContent" class="week-content" style="display:none;">
+
+  <!-- WEEK 1 -->
+  <div class="week" id="week1">
+    <h2>Week 1: Favorite Fruits Survey</h2>
+    <p class="story">
+      A school conducted a survey among 50 students to determine their favorite fruits. The results were:
+      <br>1. Apple: 15 students
+      <br>2. Banana: 12 students
+      <br>3. Mango: 8 students
+      <br>4. Orange: 5 students
+      <br>5. Other: 10 students
+    </p>
+
+    <h3>1. Which fruit is the most popular?</h3>
+    <button onclick="checkAnswer(1,'A')">A. Banana</button>
+    <button onclick="checkAnswer(1,'B')">B. Apple</button>
+    <button onclick="checkAnswer(1,'C')">C. Mango</button>
+    <button onclick="checkAnswer(1,'D')">D. Orange</button>
+    <p class="feedback" id="feedback1"></p>
+
+    <h3>2. How many students prefer other fruits?</h3>
+    <button onclick="checkAnswer(2,'A')">A. 5</button>
+    <button onclick="checkAnswer(2,'B')">B. 8</button>
+    <button onclick="checkAnswer(2,'C')">C. 10</button>
+    <button onclick="checkAnswer(2,'D')">D. 12</button>
+    <p class="feedback" id="feedback2"></p>
+
+    <h3>3. Which fruits are preferred by fewer than 10 students?</h3>
+    <button onclick="checkAnswer(3,'A')">A. Mango and Orange</button>
+    <button onclick="checkAnswer(3,'B')">B. Apple and Banana</button>
+    <button onclick="checkAnswer(3,'C')">C. Banana and Mango</button>
+    <button onclick="checkAnswer(3,'D')">D. Orange only</button>
+    <p class="feedback" id="feedback3"></p>
+
+    <h3>4. What percentage of students prefer apples?</h3>
+    <button onclick="checkAnswer(4,'A')">A. 20%</button>
+    <button onclick="checkAnswer(4,'B')">B. 24%</button>
+    <button onclick="checkAnswer(4,'C')">C. 30%</button>
+    <button onclick="checkAnswer(4,'D')">D. 36%</button>
+    <p class="feedback" id="feedback4"></p>
+
+    <h3>5. Which inference can be made from the survey?</h3>
+    <button onclick="checkAnswer(5,'A')">A. Most students dislike bananas</button>
+    <button onclick="checkAnswer(5,'B')">B. Apples are the healthiest option</button>
+    <button onclick="checkAnswer(5,'C')">C. Mangoes are gaining popularity</button>
+    <button onclick="checkAnswer(5,'D')">D. Students have diverse fruit preferences</button>
+    <p class="feedback" id="feedback5"></p>
+
+    <button onclick="nextWeek(2)">Continue to Week 2</button>
+  </div>
+
+  <!-- WEEK 2 -->
+  <div class="week" id="week2">
+    <h2>Week 2: Student Subject Preferences</h2>
+    <p class="story">
+      A survey of 100 high school students revealed their favorite subjects:
+      <br>1. Mathematics: 30 students
+      <br>2. Science: 25 students
+      <br>3. English: 20 students
+      <br>4. History: 15 students
+      <br>5. Other: 10 students
+    </p>
+
+    <h3>1. Which subject is the most popular?</h3>
+    <button onclick="checkAnswer(6,'A')">A. Mathematics</button>
+    <button onclick="checkAnswer(6,'B')">B. Science</button>
+    <button onclick="checkAnswer(6,'C')">C. English</button>
+    <button onclick="checkAnswer(6,'D')">D. History</button>
+    <p class="feedback" id="feedback6"></p>
+
+    <h3>2. How many students prefer History?</h3>
+    <button onclick="checkAnswer(7,'A')">A. 10</button>
+    <button onclick="checkAnswer(7,'B')">B. 15</button>
+    <button onclick="checkAnswer(7,'C')">C. 20</button>
+    <button onclick="checkAnswer(7,'D')">D. 25</button>
+    <p class="feedback" id="feedback7"></p>
+
+    <h3>3. Which subjects are preferred by more than 20 students?</h3>
+    <button onclick="checkAnswer(8,'A')">A. Math and Science</button>
+    <button onclick="checkAnswer(8,'B')">B. English and History</button>
+    <button onclick="checkAnswer(8,'C')">C. Math and English</button>
+    <button onclick="checkAnswer(8,'D')">D. Science and History</button>
+    <p class="feedback" id="feedback8"></p>
+
+    <h3>4. What percentage of students prefer English?</h3>
+    <button onclick="checkAnswer(9,'A')">A. 15%</button>
+    <button onclick="checkAnswer(9,'B')">B. 20%</button>
+    <button onclick="checkAnswer(9,'C')">C. 25%</button>
+    <button onclick="checkAnswer(9,'D')">D. 30%</button>
+    <p class="feedback" id="feedback9"></p>
+
+    <h3>5. What can be inferred from the survey?</h3>
+    <button onclick="checkAnswer(10,'A')">A. Students dislike History</button>
+    <button onclick="checkAnswer(10,'B')">B. Math and Science are most valuable</button>
+    <button onclick="checkAnswer(10,'C')">C. Students have diverse subject preferences</button>
+    <button onclick="checkAnswer(10,'D')">D. English is losing popularity</button>
+    <p class="feedback" id="feedback10"></p>
+
+    <button onclick="nextWeek(3)">Continue to Week 3</button>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="week" id="week3">
+    <h2>Week 3: Water Consumption Patterns</h2>
+    <p class="story">
+      A utility company tracked monthly water consumption (in gallons) for 50 households:
+      <br>1. January: 5,000
+      <br>2. February: 4,500
+      <br>3. March: 6,000
+      <br>4. April: 7,000
+      <br>5. May: 8,000
+      <br>6. June: 9,000
+    </p>
+
+    <h3>1. What is the overall trend in water consumption?</h3>
+    <button onclick="checkAnswer(11,'A')">A. Decreasing</button>
+    <button onclick="checkAnswer(11,'B')">B. Stable</button>
+    <button onclick="checkAnswer(11,'C')">C. Increasing</button>
+    <button onclick="checkAnswer(11,'D')">D. Unpredictable</button>
+    <p class="feedback" id="feedback11"></p>
+
+    <h3>2. Which month showed the highest water consumption?</h3>
+    <button onclick="checkAnswer(12,'A')">A. January</button>
+    <button onclick="checkAnswer(12,'B')">B. March</button>
+    <button onclick="checkAnswer(12,'C')">C. May</button>
+    <button onclick="checkAnswer(12,'D')">D. June</button>
+    <p class="feedback" id="feedback12"></p>
+
+    <h3>3. What percentage increase occurred from January to June?</h3>
+    <button onclick="checkAnswer(13,'A')">A. 50%</button>
+    <button onclick="checkAnswer(13,'B')">B. 80%</button>
+    <button onclick="checkAnswer(13,'C')">C. 100%</button>
+    <button onclick="checkAnswer(13,'D')">D. 120%</button>
+    <p class="feedback" id="feedback13"></p>
+
+    <h3>4. Which inference can be made about summer months?</h3>
+    <button onclick="checkAnswer(14,'A')">A. Water consumption decreases</button>
+    <button onclick="checkAnswer(14,'B')">B. Water consumption remains constant</button>
+    <button onclick="checkAnswer(14,'C')">C. Water consumption increases</button>
+    <button onclick="checkAnswer(14,'D')">D. Data is insufficient</button>
+    <p class="feedback" id="feedback14"></p>
+
+    <h3>5. What action might the utility company consider?</h3>
+    <button onclick="checkAnswer(15,'A')">A. Raise water rates</button>
+    <button onclick="checkAnswer(15,'B')">B. Implement conservation measures</button>
+    <button onclick="checkAnswer(15,'C')">C. Increase supply</button>
+    <button onclick="checkAnswer(15,'D')">D. Reduce services</button>
+    <p class="feedback" id="feedback15"></p>
+
+    <div class="score" id="score" style="display:none;"></div>
+    <button onclick="calculateScore()">View Score</button>
+  </div>
+
+</div>
+
+<script>
+function startGame(){
+  document.getElementById('startScreen').style.display='none';
+  document.getElementById('gameContent').style.display='block';
+  showWeek(1);
+}
+function nextWeek(week){
+  showWeek(week);
+}
+function showWeek(week){
+  const weeks = document.querySelectorAll('.week');
+  weeks.forEach(w=>w.style.display='none');
+  document.getElementById('week'+week).style.display='block';
+}
+
+// Multiple-choice answers
+const answers = {
+  1:'B',2:'C',3:'A',4:'B',5:'D',
+  6:'A',7:'B',8:'A',9:'B',10:'C',
+  11:'C',12:'D',13:'B',14:'C',15:'B'
+};
+
+function checkAnswer(qNum, choice){
+  const fb = document.getElementById('feedback'+qNum);
+  if(choice === answers[qNum]){
+    fb.textContent = '✅ Correct';
+    fb.style.color = 'green';
+    speakText('Correct');
+  } else {
+    fb.textContent = '❌ Please try again';
+    fb.style.color = 'red';
+    speakText('Please try again');
+  }
+}
+
+function calculateScore(){
+  let score = 0;
+  for(let i=1;i<=15;i++){
+    const fb = document.getElementById('feedback'+i).textContent;
+    if(fb.includes('Correct')) score++;
+  }
+  document.getElementById('score').textContent = `You scored ${score}/15 correct answers!`;
+  document.getElementById('score').style.display='block';
+  speakText(`You scored ${score} out of 15 correct answers`);
+}
+
+// Speech synthesis only for feedback
+function speakText(text){
+  if('speechSynthesis' in window){
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.rate = 0.9;
+    msg.pitch = 1;
+    msg.lang = 'en-US';
+    window.speechSynthesis.speak(msg);
+  }
+}
+</script>
+
+</body>
+</html>
